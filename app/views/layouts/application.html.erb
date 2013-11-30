@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Teste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="ahoekie" />
+  <script type="text/javascript">
+    var Baseurl = "<%=Settings.root%>";
+    var Tmpl = "<%=Settings.tmpl%>";
+  </script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Bootstrap -->
+  <link href="<%=Settings.tmpl%>bootstrap/css/bootstrap.css" rel="stylesheet" id="main-theme-script" />
+  <link href="<%=Settings.tmpl%>css/themes/default.css" rel="stylesheet" id="theme-specific-script" />
+  <link href="<%=Settings.tmpl%>bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+
+  <!-- Full Calender -->
+  <link rel="stylesheet" type="text/css" href="<%=Settings.tmpl%>scripts/fullcalendar/fullcalendar/fullcalendar.css" />
+
+  <!-- Bootstrap Date Picker --> 
+  <link href="<%=Settings.tmpl%>scripts/datepicker/css/datepicker.css" rel="stylesheet" />
+  
+  <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+  <link rel="stylesheet" href="<%=Settings.tmpl%>scripts/blueimp-jQuery-File-Upload/css/jquery.fileupload-ui.css" />
+  
+  <!-- Bootstrap Image Gallery styles -->
+  <link rel="stylesheet" href="http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css" />
+  
+  <!-- Uniform -->
+  <link rel="stylesheet" type="text/css" media="screen,projection" href="<%=Settings.tmpl%>scripts/uniform/css/uniform.default.css" />
+  
+  <!-- Chosen multiselect -->
+  <link type="text/css" href="<%=Settings.tmpl%>scripts/chosen/chosen/chosen.intenso.css" rel="stylesheet" />   
+
+  <!-- Simplenso -->
+  <link href="<%=Settings.tmpl%>css/simplenso.css" rel="stylesheet" />
+  
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="<%=Settings.tmpl%>images/ico/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=Settings.tmpl%>images/ico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=Settings.tmpl%>images/ico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=Settings.tmpl%>images/ico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="<%=Settings.tmpl%>images/ico/apple-touch-icon-57-precomposed.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+<body id="dashboard" class="hidden">
+<!-- Top navigation bar -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="<%=Settings.root%>">Test Aplicatie</a>
+      <div class="btn-group pull-right">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-user"></i> <%=current_user.email%>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Main Content Area | Side Nav | Content -->    
+<div class="container-fluid">
+  <div class="row-fluid">
+    <!-- Side Navigation -->
+    <div class="span2">
+      <div class="member-box round-all"> 
+        <span>
+            <strong><a><%=current_user.email%></a></strong>
+            <br />
+            <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></span>
+        </span>
+      </div>          
+      <div class="sidebar-nav">
+      	<div class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list"> 
+          <li class="nav-header">Main</li>      
+          <li class="active"><a href="#"><i class="icon-home"></i> Dash</a></li>
+       
+        </ul>
+        </div>
+      </div><!--/.well -->
+    </div><!--/span-->
+    
+    <!-- Bread Crumb Navigation -->
+	<div class="span10">
+
+
+      <!-- Geographic Page Visit Map -->
+      <div class="row-fluid">
+        <%= yield %>
+      </div>         
+        
+	  <!-- Table -->
+
+ 
+    </div><!--/span-->
+  </div><!--/row-->
+
+  <footer>
+    <p>&copy; <a href="http://www.webefficient.ro">Web Efficient</a> 2013</p>
+    <p><img src="<%=Settings.tmpl%>/powered_by_rails.png" /></p>
+  </footer>
+    <div id="box-config-modal" class="modal hide fade in" style="display: none;">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Adjust widget</h3>
+      </div>
+      <div class="modal-body">
+        <p>This part can be customized to set box content specifix settings!</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" data-dismiss="modal">Save Changes</a>
+        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+      </div>
+    </div>
+</div><!--/.fluid-container-->
+	<!-- javascript Templates
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->    
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Google API -->
+    
+    
+    <!-- Data Tables -->
+    <script src="<%=Settings.tmpl%>scripts/DataTables/media/js/jquery.dataTables.js"></script>
+    
+    <!-- jQuery UI Sortable -->
+    <script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.core.min.js"></script>
+	<script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.widget.min.js"></script>
+	<script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.mouse.min.js"></script>
+	<script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.sortable.min.js"></script>
+    <script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.widget.min.js"></script>
+    
+    <!-- jQuery UI Draggable & droppable -->
+    <script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.draggable.min.js"></script>
+    <script src="<%=Settings.tmpl%>scripts/jquery-ui/ui/minified/jquery.ui.droppable.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="<%=Settings.tmpl%>bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%=Settings.tmpl%>scripts/bootbox/bootbox.min.js"></script>
+
+	<!-- Bootstrap Date Picker -->
+    <script src="<%=Settings.tmpl%>scripts/datepicker/js/bootstrap-datepicker.js"></script>
+
+		
+    <!-- jQuery Cookie -->    
+    <script src="<%=Settings.tmpl%>scripts/jquery.cookie/jquery.cookie.js"></script>
+    
+    <!-- Full Calender -->
+    <script type='text/javascript' src='<%=Settings.tmpl%>scripts/fullcalendar/fullcalendar/fullcalendar.min.js'></script>
+    
+    <!-- CK Editor -->
+	<script type="text/javascript" src="<%=Settings.tmpl%>scripts/ckeditor/ckeditor.js"></script>
+    
+    <!-- Chosen multiselect -->
+    <script type="text/javascript" language="javascript" src="<%=Settings.tmpl%>scripts/chosen/chosen/chosen.jquery.min.js"></script>  
+    
+    <!-- Uniform -->
+    <script type="text/javascript" language="javascript" src="<%=Settings.tmpl%>scripts/uniform/jquery.uniform.min.js"></script>
+    
+    <!-- MultiFile Upload -->
+    <!-- Error messages for the upload/download templates -->
+	<script>
+    var fileUploadErrors = {
+        maxFileSize: 'File is too big',
+        minFileSize: 'File is too small',
+        acceptFileTypes: 'Filetype not allowed',
+        maxNumberOfFiles: 'Max number of files exceeded',
+        uploadedBytes: 'Uploaded bytes exceed file size',
+        emptyResult: 'Empty file upload result'
+    };
+    </script>
+    <!-- The Templates plugin is included to render the upload/download listings -->
+    <script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
+    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+    <script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
+    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+    <script src="http://blueimp.github.com/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="<%=Settings.tmpl%>scripts/blueimp-jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+	<script src="<%=Settings.tmpl%>scripts/blueimp-jQuery-File-Upload/js/jquery.fileupload.js"></script>
+    <!-- The File Upload image processing plugin -->
+    <script src="<%=Settings.tmpl%>scripts/blueimp-jQuery-File-Upload/js/jquery.fileupload-ip.js"></script>
+    <!-- The File Upload user interface plugin -->
+    <script src="<%=Settings.tmpl%>scripts/blueimp-jQuery-File-Upload/js/jquery.fileupload-ui.js"></script>
+    <!-- The main application script -->
+    <script src="<%=Settings.tmpl%>scripts/blueimp-jQuery-File-Upload/js/main.js"></script>
+    <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+    <!--[if gte IE 8]><script src="scripts/blueimp-jQuery-File-Upload/js/cors/jquery.xdr-transport.js"></script><![endif]-->
+    
+    <!-- Simplenso Scripts -->
+    <script src="<%=Settings.tmpl%>scripts/simplenso/simplenso.js"></script>
+  </body>
+</html>
