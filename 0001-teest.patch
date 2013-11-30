@@ -1,0 +1,25 @@
+From c8150c0f273fd651fd4746149d68df2aa0d4f953 Mon Sep 17 00:00:00 2001
+From: root <root@static.pknetworks.ro>
+Date: Sat, 30 Nov 2013 18:27:37 -0500
+Subject: [PATCH] teest
+
+---
+ README.rdoc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/README.rdoc b/README.rdoc
+index c2cfcb2..d10faab 100755
+--- a/README.rdoc
++++ b/README.rdoc
+@@ -21,6 +21,8 @@ Things you may want to cover:
+ 
+ * Deployment instructions
+ 
++* acesta e un commit in branch
++
+ 
+ Please feel free to use a different markup language if you do not plan to run
+ <tt>rake doc:app</tt>.
+-- 
+1.8.3.1
+
